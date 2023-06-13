@@ -17,33 +17,28 @@ CREATE TABLE bac (
 -- SELECT query we'll use when we need to see whole table
 
 SELECT * FROM bac
+ORDER BY weight, num_of_drinks;
 
--- Creates PROCEDURE for adding values to weight
+-- Creates PROCEDURE for adding values to weight and num_of_drinks columns
 
 DELIMITER //
-CREATE PROCEDURE insert_weight()
+CREATE PROCEDURE insert_values()
 BEGIN
-    DECLARE i INT DEFAULT 70;    -- variable tracks weight values
-    DECLARE j INT DEFAULT 1;     -- variable tracks number of repetitions per weight values
-		
-    WHILE i <= 400 DO
-        SET j = 1;               -- resets parameter back to 1
-	
-        WHILE j <= 16 DO
-            INSERT INTO bac (weight) VALUES (i);
-            SET j = j + 1;       -- increases to the next repetition
+    DECLARE n INT DEFAULT 0;
+    DECLARE m INT DEFAULT 70;
+
+    WHILE n <= 15 DO
+        SET m = 70;
+
+        WHILE m <= 400 DO
+			INSERT INTO bac (weight, num_of_drinks) VALUES (m,n);
+            SET m = m + 1;
         END WHILE;
-	
-    SET i = i + 1;               -- increases to the next weight value
+
+	SET n = n + 1;
     END WHILE;
 END //
 
--- Run procedure insert_weight() to insert values into weight column
+-- Run procedure insert_values() to insert values into weight column
 
-CALL insert_weight();
-
--- Creates PROCEDURE for adding values to num_of_drinks
-
-
-
--- Run procedure insert_drinks() to insert values into weight column
+CALL insert_values();
