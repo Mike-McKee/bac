@@ -23,18 +23,18 @@ SELECT * FROM bac;
 DELIMITER //
 CREATE PROCEDURE insert_weight()
 BEGIN
-    DECLARE i INT DEFAULT 70;	-- variable tracks weight values
-    DECLARE j INT DEFAULT 1;	-- variable tracks number of repetitions per weight values
+    DECLARE i INT DEFAULT 70;    -- variable tracks weight values
+    DECLARE j INT DEFAULT 1;     -- variable tracks number of repetitions per weight values
 		
     WHILE i <= 400 DO
-        SET j = 1;			-- resets parameter back to 1
+        SET j = 1;               -- resets parameter back to 1
 	
         WHILE j <= 16 DO
             INSERT INTO bac (weight) VALUES (i);
-            SET j = j + 1;				-- increases to the next repetition
+            SET j = j + 1;       -- increases to the next repetition
         END WHILE;
 	
-    SET i = i + 1;			-- increases to the next weight value
+    SET i = i + 1;               -- increases to the next weight value
     END WHILE;
 END //
 
