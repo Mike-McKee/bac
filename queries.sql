@@ -16,7 +16,7 @@ CREATE TABLE bac (
 
 -- SELECT query we'll use when we need to see whole table
 
-SELECT * FROM bac;
+SELECT * FROM bac
 
 -- Creates PROCEDURE for adding values to weight
 
