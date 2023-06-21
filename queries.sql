@@ -16,9 +16,7 @@ CREATE TABLE bac (
 
 -- SELECT query we'll use when we need to see whole table
 
-SELECT * FROM bac
-WHERE weight BETWEEN 190 AND 203
-ORDER BY weight, num_of_drinks;
+SELECT * FROM bac;
 
 -- Creates PROCEDURE for adding values to weight and num_of_drinks columns
 
